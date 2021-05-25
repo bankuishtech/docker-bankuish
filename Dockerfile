@@ -48,7 +48,7 @@ ENV NEW_RELIC_ZIP=http://download.newrelic.com/newrelic/java-agent/newrelic-agen
 
 COPY entrypoint-vault.sh /entrypoint/
 
-COPY target/app.jar app.jar
+#COPY target/app.jar app.jar
 
 RUN apk --no-cache add curl unzip jq bash fontconfig ttf-dejavu\
     && chmod +x /entrypoint/entrypoint-vault.sh \
