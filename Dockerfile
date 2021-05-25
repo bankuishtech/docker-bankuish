@@ -70,4 +70,7 @@ ARG VAULT_TOKEN
 ENV VAULT_TOKEN=$VAULT_TOKEN
 
 ENTRYPOINT ["/entrypoint/entrypoint-vault.sh"]
+
+COPY target/app.jar app.jar
+
 CMD ["java", "-javaagent:/opt/newrelic/newrelic.jar","-Dnewrelic.config.distributed_tracing.enabled=true", "--enable-preview", "-jar", "app.jar"]
