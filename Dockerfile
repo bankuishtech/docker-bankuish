@@ -48,7 +48,7 @@ ENV NEW_RELIC_ZIP=http://download.newrelic.com/newrelic/java-agent/newrelic-agen
 
 COPY entrypoint-vault.sh /entrypoint/
 
-COPY app.jar /app.jar
+#COPY app.jar /app.jar
 
 RUN apk --no-cache add curl unzip jq bash fontconfig ttf-dejavu\
     && chmod +x /entrypoint/entrypoint-vault.sh \
@@ -74,4 +74,4 @@ ENV VAULT_TOKEN=$VAULT_TOKEN
 ENTRYPOINT ["/entrypoint/entrypoint-vault.sh"]
 
 
-CMD ["java", "-javaagent:/opt/newrelic/newrelic.jar","-Dnewrelic.config.distributed_tracing.enabled=true", "--enable-preview", "-jar", "/app.jar"]
+#CMD ["java", "-javaagent:/opt/newrelic/newrelic.jar","-Dnewrelic.config.distributed_tracing.enabled=true", "--enable-preview", "-jar", "/app.jar"]
